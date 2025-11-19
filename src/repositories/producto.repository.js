@@ -3,7 +3,10 @@ const circuitBreaker = require("../utils/circuitBreaker");
 
 class ProductoRepository {
   async findAll() {
+
+    console.log("Executing findAll query");
     return await circuitBreaker.execute(pool, "SELECT * FROM productos");
+
   }
 
   async findById(id) {
